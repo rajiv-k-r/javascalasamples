@@ -9,6 +9,8 @@ public class Node {
     COLOR color = COLOR.WHITE;
     int dist = Integer.MAX_VALUE;
     Node parent;
+
+    int tstart, tend;
     Node(String name) {
         this.name = name;
     }
