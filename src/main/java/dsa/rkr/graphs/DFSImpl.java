@@ -1,6 +1,7 @@
 package dsa.rkr.graphs;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -16,8 +17,14 @@ public class DFSImpl {
             TreeLevelWise.printTreeLevelWise(root);
             System.out.println();
         }
+
+        System.out.println("printing toplogically sorted nodes of the graph");
+        for(Node node : topology) {
+            System.out.print(node.name + "\t");
+        }
     }
 
+    private static LinkedList<Node> topology = new LinkedList<>();
     private static List<Node> dff = new ArrayList<>();
     private static int time = 0;
     public static void dfs(List<Node> graph) {
@@ -44,6 +51,8 @@ public class DFSImpl {
         parent.color = COLOR.BLACK;
         time++;
         parent.tend = time;
+
+        topology.addFirst(parent); // --- adding for topological sort
     }
 
 }
